@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-title>Sign Up</mat-card-title>
+  <mat-card-content>
+    <form #form="ngForm" (ngSubmit)="registration(form)">
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Nome</mat-label>
+          <input type="text" ngModel required name="name" matInput placeholder="inserisci la tua email">
+        </mat-form-field>
+      </p>
+      
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>Email</mat-label>
+          <input type="email" ngModel required name="email"  matInput placeholder="inserisci la tua email">
+        </mat-form-field>
+      </p>
+      
+      <p>
+        <mat-form-field  appearance="standard">
+          <mat-label>Password</mat-label>
+          <input type='password' ngModel required name="password"  matInput placeholder="inserisci la tua password">
+        </mat-form-field>
+      </p>
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Iscriviti</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+<p class='registration'>Hai già un account? <a  [routerLink]="['/login']"
+  routerLinkActive="active">Accedi!</a></p>
