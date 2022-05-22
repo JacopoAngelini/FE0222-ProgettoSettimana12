@@ -1,1 +1,26 @@
-<p>movies work!</p>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <div>
+      <h2>Menu</h2>
+      <a [routerLink]="['/']"
+      routerLinkActive="active" >
+        <p>Movies</p>
+      </a>
+      <a [routerLink]="['/profile']"
+      routerLinkActive="active">
+        <p>Profile</p>
+      </a>
+      <a (click)="logout()">
+        <p color='accent'>Esci</p>
+      </a>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <p>
+      <mat-toolbar color='primary'>
+        <span>Movies</span>
+      </mat-toolbar>
+    </p>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

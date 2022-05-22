@@ -59,6 +59,16 @@ export class AuthService {
     this.userOBV.next(userdata)
   }
 
+  
+  logout(){
+    let confirmOut = confirm("sicuro di voler uscire?");
+    if (confirmOut){
+      this.userOBV.next(null);
+      localStorage.removeItem('user')
+      this.router.navigate(['/login'])
+    }
+  }
+
 
 
 }

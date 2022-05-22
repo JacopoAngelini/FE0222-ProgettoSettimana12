@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { MoviesRouterModule } from './movies-routing.module';
 import { MoviesComponent } from './movies.component';
+import { MaterialAllModule } from '../../material-all.module'
+
 
 
 
@@ -14,7 +16,8 @@ import { MoviesComponent } from './movies.component';
   ],
   imports: [
     CommonModule,
-    MoviesRouterModule
+    MoviesRouterModule,
+    MaterialAllModule,
   ]
 })
 export class MoviesModule { }

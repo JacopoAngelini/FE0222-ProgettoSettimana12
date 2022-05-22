@@ -17,7 +17,6 @@ import { MoviesModule } from './features/movies/movies.module';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
