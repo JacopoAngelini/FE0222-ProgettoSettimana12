@@ -21,6 +21,10 @@ export class MoviesService {
     return this.http.get<Movies[]>(`${this.url}/movies-popular`);
   }
 
+  getFav(id: string): Observable<Favorites[]>{
+    return this.http.get<Favorites[]>(`${this.url}/favorites`);
+  }
+
 
 
 

@@ -27,29 +27,9 @@
   ],
   "favorites": [
     {
-      "movieId": 460465,
-      "id": 6
-    },
-    {
-      "movieId": 460465,
-      "id": 7
-    },
-    {
-      "movieId": 460465,
-      "id": 8
-    },
-    {
-      "movieId": 567189,
-      "id": 9
-    },
-    {
-      "movieId": 567189,
-      "id": 10
-    },
-    {
       "movieId": 567189,
       "userId": 1,
-      "id": 12
+      "id": 1
     }
   ],
   "genres": [

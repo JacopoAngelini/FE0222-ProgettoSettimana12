@@ -3,6 +3,7 @@ import { MoviesService } from './movies.service';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Movies } from 'src/app/interface/movies';
 import { Subscription } from 'rxjs';
+import { Favorites } from 'src/app/interface/favorites';
 
 
 @Component({
@@ -15,17 +16,20 @@ export class MoviesComponent implements OnInit {
   moviesData: Movies[] = [];
   url: string = 'http://image.tmdb.org/t/p/w500';
   sub!: Subscription;
+  sub2!: Subscription;
   router: any;
-  favorites!: any;
+  favorites!: number[];
   id!:number;
 
 
 
   constructor(private movSrv: MoviesService, private autSrv: AuthService) { 
+    
   }
 
   ngOnInit() {
     this.getMovies();
+    this.getFav();
   }
 
   ngOnDestroy(): void {
@@ -42,6 +46,19 @@ export class MoviesComponent implements OnInit {
       console.log(this.moviesData);
     });
   }
+
+  getFav(){
+    const userData = JSON.parse(localStorage.getItem('user') || '{}');
+    this.sub2 = this.movSrv.getFav(userData.user.id).subscribe((args: Favorites[]) => {
+      args.forEach((arg) => {
+        if (arg.userId == userData.user.id){
+          this.favorites.push(arg.movieId)
+        }
+      })
+    });;
+  }
+
+  
 
  
 
