@@ -22,7 +22,7 @@ export class MoviesService {
   }
 
   getFav(id: string): Observable<Favorites[]>{
-    return this.http.get<Favorites[]>(`${this.url}/favorites`);
+    return this.http.get<Favorites[]>(`${this.url}/api/favorites?userId=${id}`);
   }
 
 

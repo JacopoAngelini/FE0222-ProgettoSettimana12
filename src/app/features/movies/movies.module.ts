@@ -10,6 +10,8 @@ import { MaterialAllModule } from '../../material-all.module'
 
 
 
+
+
 @NgModule({
   declarations: [
     MoviesComponent
@@ -20,4 +22,7 @@ import { MaterialAllModule } from '../../material-all.module'
     MaterialAllModule,
   ]
 })
-export class MoviesModule { }
+export class MoviesModule {
+
+
+ }
