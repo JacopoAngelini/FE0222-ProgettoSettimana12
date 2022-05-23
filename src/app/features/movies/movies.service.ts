@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Movies } from 'src/app/interface/movies';
+import { Favorites } from 'src/app/interface/favorites';
 
 
 
@@ -20,9 +21,16 @@ export class MoviesService {
     return this.http.get<Movies[]>(`${this.url}/movies-popular`);
   }
 
- 
 
 
 
 
-}
+
+
+
+ }
+
+
+
+
+

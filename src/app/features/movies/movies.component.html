@@ -19,16 +19,18 @@
     <p>
       <mat-toolbar color='primary'>
         <span>Movies</span>
-      </mat-toolbar> 
+      </mat-toolbar>
     </p>
-    <mat-card *ngFor="let data of moviesData">
-      <mat-card-content>
-    <img src="http://localhost:4201/movies-popular{{data.poster_path}} + '?bearer=' + {{getImages()}}">
-      </mat-card-content>
-      <mat-card-footer>
-        X
-      </mat-card-footer>
-    </mat-card>
+   <div  class='container d-flex flex-wrap justify-content-around' >
+      <mat-card color='primary' class='card mx-3 my-3 p-0 border-0' *ngFor="let data of moviesData">
+        <mat-card-content>
+      <img src="{{url + data.poster_path}}">
+        </mat-card-content>
+        <mat-card-footer class='p-3'>
+          
+        </mat-card-footer>
+      </mat-card>
+   </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
 
