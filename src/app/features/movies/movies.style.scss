@@ -22,11 +22,17 @@
     a:last-child {
       position: absolute;
       bottom:0;
-      color: purple
+      color: purple;
+      cursor: pointer
     }
   }
 .info{
   text-align: center;
   margin-top: 1.5rem;
+}
+
+img{
+  width: 300px;
+  height: auto;
 }
   
