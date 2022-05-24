@@ -28,13 +28,28 @@
   "favorites": [
     {
       "movieId": 567189,
-      "userId": 1,
-      "id": 1
+      "userId": 2,
+      "id": 3
     },
     {
-      "movieId":  578701,
+      "movieId": 567189,
+      "userId": 3,
+      "id": 4
+    },
+    {
+      "movieId": 460465,
+      "userId": 4,
+      "id": 6
+    },
+    {
+      "movieId": 567189,
+      "userId": 4,
+      "id": 7
+    },
+    {
+      "movieId": 567189,
       "userId": 1,
-      "id": 2
+      "id": 8
     }
   ],
   "genres": [

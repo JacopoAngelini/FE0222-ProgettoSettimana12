@@ -5,6 +5,7 @@ import { tap } from 'rxjs/operators';
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { Router } from '@angular/router';
 import { User } from '../interface/user';
+import { MoviesService } from '../features/movies/movies.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class AuthService {
 
   jwtSrv = new JwtHelperService()
 
-  constructor(private http: HttpClient, private router:Router) { 
+  constructor(private http: HttpClient, private router:Router, private movSrv: MoviesService ) { 
     this.getUserLog();
   }
 
@@ -37,6 +38,7 @@ export class AuthService {
         console.log(data);
         this.userOBV.next(data);
         localStorage.setItem('user', JSON.stringify(data));
+        this.movSrv.getUserInfo();
       })
     );
   }

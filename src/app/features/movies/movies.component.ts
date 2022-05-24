@@ -28,9 +28,12 @@ export class MoviesComponent implements OnInit {
   url: string = 'http://image.tmdb.org/t/p/w500';
   sub!: Subscription;
   sub2!: Subscription;
+  sub3!: Subscription;
   router: any;
   favorites: number[] = [];
-  id!:number;
+  idFav: number[] = [];
+  Id:number = 0;
+  
 
 
 
@@ -65,20 +68,49 @@ export class MoviesComponent implements OnInit {
       args.forEach((arg) => {
         if (arg.userId == userData.user.id){
           this.favorites.push(arg.movieId)
+          if(arg.id != NaN && arg.id != undefined){
+            this.idFav.push(arg.id);
+            console.log(this.idFav)
+          }
         }
       })
-
-    });;
+    });
   }
 
   findFav(id: number): boolean{
     for(let i = 0; i < (this.favorites).length; i++){
       if(this.favorites[i] == id){
-        console.log(this.favorites[i])
         return true;
       }
     }
     return false;
+  }
+
+  async like(movie: Movies){
+    await(await (this.movSrv.like(movie))).toPromise();
+    this.favorites.push(movie.id);
+      this.findFav(movie.id)
+      console.log(this.idFav[(this.idFav.length - 1)])
+    if ( this.idFav[(this.idFav.length - 1)] != undefined) {
+      console.log(this.idFav[(this.idFav.length - 1)])
+      this.Id = this.idFav[(this.idFav.length - 1)];
+      this.idFav.push((this.Id + 1))
+      console.log(this.idFav)
+    }
+    else{
+      window.location.reload();
+    }
+  }
+
+  async unlike(movie: Movies){
+    for(let i = 0; i < (this.favorites).length; i++){
+      if(this.favorites[i] == movie.id){
+        await(await (this.movSrv.unlike(movie, this.idFav[i]))).toPromise();
+        this.favorites.splice(i, 1);
+        this.idFav.splice(i,1);
+        this.findFav(movie.id);
+      }
+    }
   }
 
 

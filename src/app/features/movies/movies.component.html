@@ -22,14 +22,18 @@
       </mat-toolbar>
     </p>
    <div  class='container d-flex flex-wrap justify-content-around' >
-      <mat-card color='primary' class='card mx-3 my-3 p-0 border-0' *ngFor="let data of moviesData">
+      <mat-card color='primary' class='card mx-3 my-3 p-0 border-0' *ngFor="let data of moviesData; let i = index">
         <mat-card-content>
       <img src="{{url + data.poster_path}}">
         </mat-card-content>
         <mat-card-footer class='p-3'>
           <mat-card-actions class="d-flex">
-            <button mat-icon-button aria-label >
-              <mat-icon class='mx-4' [color]="findFav(data.id)? 'primary' : ''" svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"> 
+            <button mat-icon-button aria-label (click)="like(data)" *ngIf="!findFav(data.id)" >
+              <mat-icon class='mx-3' svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"> 
+              </mat-icon>
+            </button>
+            <button mat-icon-button aria-label (click)="unlike(data)" *ngIf="findFav(data.id)" >
+              <mat-icon class='mx-3' color="primary" svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"> 
               </mat-icon>
             </button>
           </mat-card-actions>
